@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" id="aaa">
+    <button id="btn" onclick="clickHandler()">클릭</button>
+    <div id="bbb"></div>
+</body>
+<script>
+    const button = document.querySelector('#btn');
+    function clickHandler() {
+        const vv = document.getElementById('aaa');
+        console.log(vv.value);
+
+        const div = document.getElementById('bbb');
+        const div2 = document.createElement('div');
+        const p = document.createElement('p');
+        const button = document.createElement('button');
+
+        p.innerText = vv.value;
+        button.textContent = '삭제';
+        p.appendChild(button);
+        vv.value = '';
+
+        div2.appendChild(p);
+        div2.appendChild(button);
+        div.appendChild(div2);
+
+        button.addEventListener('click', () => {
+            div.removeChild(div2);
+        });
+    }
+</script>
+</body>
+
+</html>
